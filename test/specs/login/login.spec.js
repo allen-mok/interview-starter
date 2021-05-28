@@ -1,6 +1,6 @@
-import LoginPage from "../pages/login.page";
+import LoginPage from "../../pages/login.page";
 
-describe('Notarize Signer Login Page Smoke Test', () => {
+describe('Notarize Signer Login Page: Smoke Test', () => {
   const VALID_EMAIL = 'amok526@gmail.com';  //TODO: research into a more secure method of storing username/pass
   const VALID_PASSWORD = '$gsSNHA*63ht';
 
@@ -42,6 +42,8 @@ describe('Notarize Signer Login Page Smoke Test', () => {
 
     expect(LoginPage.passwordField).toBeDisplayed();
     expect(LoginPage.continueBtn).toBeDisabled();
+    expect(LoginPage.passwordBackLink).toBeDisplayed();
+    expect(LoginPage.forgotPasswordLink).toBeDisplayed();
   });
 
   it('should be able to fill out password', () => {
