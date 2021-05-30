@@ -1,4 +1,10 @@
 class LoginPage {  
+  // Constants
+  get VALID_EMAIL () { return 'amok526@gmail.com' };  //TODO: research into a more secure method of storing username/pass
+  get SEND_PASSWORD_RESET_BTN_TEXT () { return 'Send Password Reset Link' };
+  get RESET_LINK_SENT_BTN_TEXT () { return 'Reset Link Sent' };
+
+  // Selectors
   get emailField () { return $('[data-automation-id="email-field"]') };
   get continueBtn () { return $('[data-automation-id="button"]') };
   get signUpLink () { return $('=Sign up') }; //TODO: add data attribute instead
@@ -10,6 +16,7 @@ class LoginPage {
   get forgotPasswordLink () { return $('=Forgot password?') }; //TODO: add data attribute
   get passwordBackLink () { return $('=Back') }; //TODO: add data attribute
 
+  // Functions
   open () { return browser.url("https://app.notarize.com/login") };
 
   /**
@@ -37,6 +44,19 @@ class LoginPage {
       expect(this.continueBtn).toBeDisabled();
       expect(this.passwordBackLink).toBeDisplayed();
       expect(this.forgotPasswordLink).toBeDisplayed();
+    });
+  }
+
+  /**
+   * Clicks Back Link and validates email entry is in clean/empty state
+   */
+  clickBackLink() {
+    it('should be able to navigate back using Back link', () => {
+      this.passwordBackLink.click();
+  
+      expect(this.emailField).toBeDisplayed();
+      expect(this.emailField).toBeEnabled();
+      expect(this.emailField).toHaveValue('');
     });
   }
 }

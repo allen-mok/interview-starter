@@ -9,3 +9,6 @@
 - Moved login.spec.js to new `login` folder for organizing tests.
 - Created separate login.regression.spec.js file (in case we want tests to run in different cadences).
 - Refactored email fill and continue to password entry into resusable functions.
+- Refactored clicking back link into a resusable function.
+- Refactored VALID_EMAIL as a reusable constant.
+- Added additional regression tests for sign up link and forgot password

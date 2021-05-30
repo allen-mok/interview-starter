@@ -1,7 +1,6 @@
 import LoginPage from "../../pages/login.page";
 
 describe('Notarize Signer Login Page: Smoke Test', () => {
-  const VALID_EMAIL = 'amok526@gmail.com';  //TODO: research into a more secure method of storing username/pass
   const VALID_PASSWORD = '$gsSNHA*63ht';
 
   it('should open the login page', () => {
@@ -31,7 +30,7 @@ describe('Notarize Signer Login Page: Smoke Test', () => {
     expect(LoginPage.googleBtn).toBeEnabled();
   });
 
-  LoginPage.fillEmailField(VALID_EMAIL);
+  LoginPage.fillEmailField(LoginPage.VALID_EMAIL);
 
   LoginPage.continueToPassword();
 
