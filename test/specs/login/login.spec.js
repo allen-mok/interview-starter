@@ -31,9 +31,7 @@ describe('Notarize Signer Login Page: Smoke Test', () => {
   });
 
   LoginPage.fillEmailField(LoginPage.VALID_EMAIL);
-
   LoginPage.continueToPassword();
-
   it('should be able to fill out password', () => {
     LoginPage.passwordField.setValue(VALID_PASSWORD);
 
