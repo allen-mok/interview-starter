@@ -12,6 +12,33 @@ class LoginPage {
 
   open () { return browser.url("https://app.notarize.com/login") };
 
+  /**
+   * Fills out email field and validates Continue Button is enabled
+   * @param {string} email - email to fill in field with
+   */
+  fillEmailField(email) {
+    it('should be able to fill out email field', () => {
+      this.emailField.setValue(email);
+  
+      expect(this.continueBtn).toBeEnabled();
+    });
+  }
+
+  /**
+   * Clicks Continue button after email has been filled and validates
+   * password field is displayed, Continue button is disabled,
+   * password back link is displayed, and forgotPassword link is displayed
+   */
+  continueToPassword() {
+    it('should be able to continue to Password entry', () => {
+      this.continueBtn.click();
+
+      expect(this.passwordField).toBeDisplayed();
+      expect(this.continueBtn).toBeDisabled();
+      expect(this.passwordBackLink).toBeDisplayed();
+      expect(this.forgotPasswordLink).toBeDisplayed();
+    });
+  }
 }
 
 export default new LoginPage();

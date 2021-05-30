@@ -31,20 +31,9 @@ describe('Notarize Signer Login Page: Smoke Test', () => {
     expect(LoginPage.googleBtn).toBeEnabled();
   });
 
-  it('should be able to fill out email field', () => {
-    LoginPage.emailField.setValue(VALID_EMAIL);
+  LoginPage.fillEmailField(VALID_EMAIL);
 
-    expect(LoginPage.continueBtn).toBeEnabled();
-  });
-
-  it('should be able to continue to Password entry', () => {
-    LoginPage.continueBtn.click();
-
-    expect(LoginPage.passwordField).toBeDisplayed();
-    expect(LoginPage.continueBtn).toBeDisabled();
-    expect(LoginPage.passwordBackLink).toBeDisplayed();
-    expect(LoginPage.forgotPasswordLink).toBeDisplayed();
-  });
+  LoginPage.continueToPassword();
 
   it('should be able to fill out password', () => {
     LoginPage.passwordField.setValue(VALID_PASSWORD);

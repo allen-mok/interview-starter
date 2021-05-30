@@ -13,7 +13,6 @@ const INVALID_PASSWORDS = {
 };
 
 describe('Notarize Signer Login Page: Regression Tests', () => {
-  //TODO: refactor this to a resusable function
   it('should open the login page', () => {
     LoginPage.open();
   });
@@ -35,20 +34,9 @@ describe('Notarize Signer Login Page: Regression Tests', () => {
     });
   };
 
-  //TODO: refactor this to a resusable function
-  it('should be able to fill out email field', () => {
-    LoginPage.emailField.setValue(VALID_EMAIL);
+  LoginPage.fillEmailField(VALID_EMAIL);
 
-    expect(LoginPage.continueBtn).toBeEnabled();
-  });
-
-  //TODO: refactor this to a resusable function
-  it('should be able to continue to Password entry', () => {
-    LoginPage.continueBtn.click();
-
-    expect(LoginPage.passwordField).toBeDisplayed();
-    expect(LoginPage.continueBtn).toBeDisabled();
-  });
+  LoginPage.continueToPassword();
 
   it('should display an error when password is empty', () => {
     //TODO: remove tab hack for blurring the field
@@ -65,20 +53,9 @@ describe('Notarize Signer Login Page: Regression Tests', () => {
     expect(LoginPage.emailField).toHaveValue('');
   });
 
-  //TODO: refactor this to a resusable function
-  it('should be able to fill out email field', () => {
-    LoginPage.emailField.setValue(NOT_SIGNED_UP);
+  LoginPage.fillEmailField(NOT_SIGNED_UP);
 
-    expect(LoginPage.continueBtn).toBeEnabled();
-  });
-
-  //TODO: refactor this to a resusable function
-  it('should be able to continue to Password entry', () => {
-    LoginPage.continueBtn.click();
-
-    expect(LoginPage.passwordField).toBeDisplayed();
-    expect(LoginPage.continueBtn).toBeDisabled();
-  });
+  LoginPage.continueToPassword();
   
   it('should display an error when invalid user/password combination submitted', () => {
     LoginPage.passwordField.setValue(`${INVALID_PASSWORDS.INCORRECT}`);

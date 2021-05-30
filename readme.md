@@ -8,3 +8,4 @@
 - Added a "smoke" test suite of happy path for logging in with valid credentials.
 - Moved login.spec.js to new `login` folder for organizing tests.
 - Created separate login.regression.spec.js file (in case we want tests to run in different cadences).
+- Refactored email fill and continue to password entry into resusable functions.
