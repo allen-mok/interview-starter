@@ -14,7 +14,7 @@ exports.config = {
   logLevel: 'error',
   bail: 0,
   baseUrl: 'https://notarize.com/',
-  waitforTimeout: 10000,
+  waitforTimeout: 5000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
   services: ['chromedriver'],
